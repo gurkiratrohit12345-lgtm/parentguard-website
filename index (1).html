@@ -610,60 +610,277 @@ h1{animation:fadeUp .6s .15s both}
   <div class="container">
     <div class="section-label" style="color:#4ade80">Care tiers & pricing</div>
     <h2><span class="w">Transparent pricing.</span><br><span style="color:#4ade80">No surprises.</span></h2>
-    <p class="lead" style="color:#475569;margin-bottom:44px">Choose the tier that matches your parent's care needs. Every family is different — we have a plan for each one.</p>
-    <div class="tiers-grid">
-      <div class="tier-card t1">
-        <div class="tier-badge">Tier 1</div>
-        <h3>Companion & Personal Care</h3>
-        <div class="tier-price">₹720<span style="font-size:16px;color:#4ade80">/8hr</span></div>
-        <div class="tier-price-note">Monthly plans from ₹15,000 — ₹18,000</div>
-        <hr class="tier-hr">
-        <ul class="tier-feats">
-          <li>Companionship & social engagement</li>
-          <li>Meal preparation & light housekeeping</li>
-          <li>Medication reminders (not dispensing)</li>
-          <li>Mobility assistance & transport</li>
-          <li>Daily app check-ins & task logs</li>
-        </ul>
-        <div class="tier-qual">Best for: Mobile elderly with low dependency, social isolation, mild cognitive decline</div>
-      </div>
-      <div class="tier-card t2">
-        <div class="tier-popular-tag">Most Popular</div>
-        <div class="tier-badge">Tier 2</div>
-        <h3>Semi-Medical Assistance</h3>
-        <div class="tier-price">₹1,220<span style="font-size:16px;color:#a78bfa">/8hr</span></div>
-        <div class="tier-price-note">Monthly plans from ₹26,000 — ₹32,000</div>
-        <hr class="tier-hr">
-        <ul class="tier-feats">
-          <li>Everything in Tier 1</li>
-          <li>Vital signs measurement & app logging</li>
-          <li>Medication dispensing (guardian-authorized)</li>
-          <li>Basic wound dressing</li>
-          <li>Blood glucose monitoring</li>
-          <li>Assisted physiotherapy exercises</li>
-        </ul>
-        <div class="tier-qual">Best for: Chronic conditions — diabetes, post-surgical recovery, mild stroke</div>
-      </div>
-      <div class="tier-card t3">
-        <div class="tier-badge">Tier 3</div>
-        <h3>Critical Nursing Care</h3>
-        <div class="tier-price">₹2,200<span style="font-size:16px;color:#fbbf24">/12hr</span></div>
-        <div class="tier-price-note">Monthly live-in from ₹54,000 — ₹66,000</div>
-        <hr class="tier-hr">
-        <ul class="tier-feats">
-          <li>Everything in Tier 2</li>
-          <li>Catheter & nasogastric tube management</li>
-          <li>Oxygen therapy monitoring</li>
-          <li>Advanced dementia & palliative care</li>
-          <li>Full clinical documentation</li>
-          <li>Direct physician coordination</li>
-        </ul>
-        <div class="tier-qual">Best for: Post-ICU, advanced dementia, palliative, continuous monitoring</div>
+    <p class="lead" style="color:#475569;margin-bottom:36px">Choose your care tier and shift type. Book hourly, daily shifts, or go for a monthly package — whatever works for your family.</p>
+
+    <!-- Tier selector tabs -->
+    <div style="display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap">
+      <button class="tier-tab active" onclick="switchTier('t1',this)" style="padding:10px 22px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;border:1.5px solid #4ade80;background:#4ade80;color:#0f172a;font-family:var(--font);transition:all .18s">Tier 1 — Companion</button>
+      <button class="tier-tab" onclick="switchTier('t2',this)" style="padding:10px 22px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.15);background:transparent;color:#94a3b8;font-family:var(--font);transition:all .18s">Tier 2 — Semi-Medical</button>
+      <button class="tier-tab" onclick="switchTier('t3',this)" style="padding:10px 22px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.15);background:transparent;color:#94a3b8;font-family:var(--font);transition:all .18s">Tier 3 — Critical Nursing</button>
+    </div>
+
+    <!-- TIER 1 -->
+    <div id="tier-t1" class="tier-detail-wrap">
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start">
+        <div class="tier-card t1" style="position:sticky;top:80px">
+          <div class="tier-badge">Tier 1</div>
+          <h3>Companion & Personal Care</h3>
+          <p style="font-size:13px;color:#64748b;margin-bottom:20px;line-height:1.65">Non-medical assistance for mobile elderly with low dependency. Companionship, daily tasks, medication reminders.</p>
+          <hr class="tier-hr">
+          <ul class="tier-feats">
+            <li>Companionship & social engagement</li>
+            <li>Meal preparation & light housekeeping</li>
+            <li>Medication reminders (not dispensing)</li>
+            <li>Mobility assistance & transport</li>
+            <li>Daily app check-ins & task logs</li>
+            <li>Real-time guardian updates</li>
+          </ul>
+          <div class="tier-qual" style="margin-top:16px">Qualification: ParentGuard Companion Certification (40 hrs)</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px">Choose your shift type</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <!-- Hourly -->
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <div style="font-size:15px;font-weight:800;color:#f1f5f9">Hourly Booking</div>
+                <div style="font-size:11px;color:#64748b;background:rgba(255,255,255,.06);padding:4px 10px;border-radius:20px">Min. 4 hours</div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                <div style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);border-radius:10px;padding:12px;text-align:center">
+                  <div style="font-size:11px;color:#4ade80;font-weight:700;margin-bottom:4px">4 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹360</div>
+                  <div style="font-size:10px;color:#475569">₹90/hr</div>
+                </div>
+                <div style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);border-radius:10px;padding:12px;text-align:center">
+                  <div style="font-size:11px;color:#4ade80;font-weight:700;margin-bottom:4px">6 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹510</div>
+                  <div style="font-size:10px;color:#475569">₹85/hr</div>
+                </div>
+                <div style="background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);border-radius:10px;padding:12px;text-align:center;position:relative">
+                  <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#4ade80;color:#0f172a;font-size:9px;font-weight:800;padding:2px 8px;border-radius:20px;white-space:nowrap">POPULAR</div>
+                  <div style="font-size:11px;color:#4ade80;font-weight:700;margin-bottom:4px">8 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹640</div>
+                  <div style="font-size:10px;color:#475569">₹80/hr</div>
+                </div>
+              </div>
+            </div>
+            <!-- Day/Night shifts -->
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+              <div style="font-size:15px;font-weight:800;color:#f1f5f9;margin-bottom:14px">Fixed Shifts</div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🌅 Day Shift</div><div style="font-size:11px;color:#475569">8 hrs · 8:00 AM – 6:00 PM</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#4ade80">₹720</div><div style="font-size:10px;color:#475569">per shift</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🌙 Night Shift</div><div style="font-size:11px;color:#475569">12 hrs · 8:00 PM – 8:00 AM</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#4ade80">₹960</div><div style="font-size:10px;color:#475569">per shift</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🏠 24hr Live-in</div><div style="font-size:11px;color:#475569">Full day & night</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#4ade80">₹1,500</div><div style="font-size:10px;color:#475569">per day</div></div>
+                </div>
+              </div>
+            </div>
+            <!-- Monthly -->
+            <div style="background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.25);border-radius:14px;padding:20px 22px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <div style="font-size:15px;font-weight:800;color:#f1f5f9">Monthly Package</div>
+                <div style="font-size:11px;color:#4ade80;font-weight:700;background:rgba(74,222,128,.1);padding:4px 10px;border-radius:20px">Save up to 20%</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#4ade80;font-weight:700;margin-bottom:4px">DAY SHIFTS · 26/mo</div>
+                  <div style="font-size:24px;font-weight:900;color:#fff">₹15,000</div>
+                  <div style="font-size:10px;color:#475569">₹577/shift · Save ₹3,720</div>
+                </div>
+                <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#4ade80;font-weight:700;margin-bottom:4px">FULL DAY · 30/mo</div>
+                  <div style="font-size:24px;font-weight:900;color:#fff">₹18,000</div>
+                  <div style="font-size:10px;color:#475569">₹600/day · Save ₹6,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- TIER 2 -->
+    <div id="tier-t2" class="tier-detail-wrap" style="display:none">
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start">
+        <div class="tier-card t2" style="position:sticky;top:80px">
+          <div class="tier-popular-tag">Most Popular</div>
+          <div class="tier-badge">Tier 2</div>
+          <h3>Semi-Medical Assistance</h3>
+          <p style="font-size:13px;color:#64748b;margin-bottom:20px;line-height:1.65">For elderly with managed chronic conditions. Medication dispensing, vitals monitoring, wound care.</p>
+          <hr class="tier-hr">
+          <ul class="tier-feats">
+            <li>Everything in Tier 1</li>
+            <li>Vital signs measurement & app logging</li>
+            <li>Medication dispensing (guardian-authorized)</li>
+            <li>Basic wound dressing</li>
+            <li>Blood glucose monitoring</li>
+            <li>Assisted physiotherapy exercises</li>
+          </ul>
+          <div class="tier-qual" style="margin-top:16px">Qualification: ANM/GNM Diploma or 3+ yrs verified experience</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px">Choose your shift type</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <div style="font-size:15px;font-weight:800;color:#f1f5f9">Hourly Booking</div>
+                <div style="font-size:11px;color:#64748b;background:rgba(255,255,255,.06);padding:4px 10px;border-radius:20px">Min. 4 hours</div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                <div style="background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:12px;text-align:center">
+                  <div style="font-size:11px;color:#a78bfa;font-weight:700;margin-bottom:4px">4 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹560</div>
+                  <div style="font-size:10px;color:#475569">₹140/hr</div>
+                </div>
+                <div style="background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:12px;text-align:center">
+                  <div style="font-size:11px;color:#a78bfa;font-weight:700;margin-bottom:4px">6 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹780</div>
+                  <div style="font-size:10px;color:#475569">₹130/hr</div>
+                </div>
+                <div style="background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);border-radius:10px;padding:12px;text-align:center;position:relative">
+                  <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#a78bfa;color:#0f172a;font-size:9px;font-weight:800;padding:2px 8px;border-radius:20px;white-space:nowrap">POPULAR</div>
+                  <div style="font-size:11px;color:#a78bfa;font-weight:700;margin-bottom:4px">8 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹1,000</div>
+                  <div style="font-size:10px;color:#475569">₹125/hr</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+              <div style="font-size:15px;font-weight:800;color:#f1f5f9;margin-bottom:14px">Fixed Shifts</div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🌅 Day Shift</div><div style="font-size:11px;color:#475569">8 hrs · 8:00 AM – 6:00 PM</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#a78bfa">₹1,220</div><div style="font-size:10px;color:#475569">per shift</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🌙 Night Shift</div><div style="font-size:11px;color:#475569">12 hrs · 8:00 PM – 8:00 AM</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#a78bfa">₹1,700</div><div style="font-size:10px;color:#475569">per shift</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🏠 24hr Live-in</div><div style="font-size:11px;color:#475569">Full day & night</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#a78bfa">₹2,600</div><div style="font-size:10px;color:#475569">per day</div></div>
+                </div>
+              </div>
+            </div>
+            <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.25);border-radius:14px;padding:20px 22px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <div style="font-size:15px;font-weight:800;color:#f1f5f9">Monthly Package</div>
+                <div style="font-size:11px;color:#a78bfa;font-weight:700;background:rgba(167,139,250,.1);padding:4px 10px;border-radius:20px">Save up to 20%</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#a78bfa;font-weight:700;margin-bottom:4px">DAY SHIFTS · 26/mo</div>
+                  <div style="font-size:24px;font-weight:900;color:#fff">₹26,000</div>
+                  <div style="font-size:10px;color:#475569">₹1,000/shift · Save ₹5,720</div>
+                </div>
+                <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#a78bfa;font-weight:700;margin-bottom:4px">FULL DAY · 30/mo</div>
+                  <div style="font-size:24px;font-weight:900;color:#fff">₹31,720</div>
+                  <div style="font-size:10px;color:#475569">₹1,057/day · Save ₹6,280</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div id="tier-t3" class="tier-detail-wrap" style="display:none">
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start">
+        <div class="tier-card t3" style="position:sticky;top:80px">
+          <div class="tier-badge">Tier 3</div>
+          <h3>Critical Nursing Care</h3>
+          <p style="font-size:13px;color:#64748b;margin-bottom:20px;line-height:1.65">For high-dependency elderly. Advanced dementia, post-ICU recovery, palliative care, continuous monitoring.</p>
+          <hr class="tier-hr">
+          <ul class="tier-feats">
+            <li>Everything in Tier 2</li>
+            <li>Catheter & nasogastric tube management</li>
+            <li>Oxygen therapy monitoring</li>
+            <li>Advanced dementia & palliative care</li>
+            <li>Full clinical documentation</li>
+            <li>Direct physician coordination</li>
+          </ul>
+          <div class="tier-qual" style="margin-top:16px">Qualification: Registered Nurse (GNM/B.Sc Nursing) + 2 yrs clinical experience</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px">Choose your shift type</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <div style="font-size:15px;font-weight:800;color:#f1f5f9">Hourly Booking</div>
+                <div style="font-size:11px;color:#64748b;background:rgba(255,255,255,.06);padding:4px 10px;border-radius:20px">Min. 4 hours</div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                <div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:12px;text-align:center">
+                  <div style="font-size:11px;color:#fbbf24;font-weight:700;margin-bottom:4px">4 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹900</div>
+                  <div style="font-size:10px;color:#475569">₹225/hr</div>
+                </div>
+                <div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:12px;text-align:center">
+                  <div style="font-size:11px;color:#fbbf24;font-weight:700;margin-bottom:4px">6 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹1,260</div>
+                  <div style="font-size:10px;color:#475569">₹210/hr</div>
+                </div>
+                <div style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:12px;text-align:center;position:relative">
+                  <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#fbbf24;color:#0f172a;font-size:9px;font-weight:800;padding:2px 8px;border-radius:20px;white-space:nowrap">POPULAR</div>
+                  <div style="font-size:11px;color:#fbbf24;font-weight:700;margin-bottom:4px">12 HOURS</div>
+                  <div style="font-size:22px;font-weight:900;color:#fff">₹2,200</div>
+                  <div style="font-size:10px;color:#475569">₹183/hr</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+              <div style="font-size:15px;font-weight:800;color:#f1f5f9;margin-bottom:14px">Fixed Shifts</div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🌅 Day Shift</div><div style="font-size:11px;color:#475569">12 hrs · 8:00 AM – 8:00 PM</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#fbbf24">₹2,200</div><div style="font-size:10px;color:#475569">per shift</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🌙 Night Shift</div><div style="font-size:11px;color:#475569">12 hrs · 8:00 PM – 8:00 AM</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#fbbf24">₹2,200</div><div style="font-size:10px;color:#475569">per shift</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px 16px">
+                  <div><div style="font-size:13px;font-weight:700;color:#f1f5f9">🏠 24hr Live-in</div><div style="font-size:11px;color:#475569">Continuous monitoring</div></div>
+                  <div style="text-align:right"><div style="font-size:20px;font-weight:900;color:#fbbf24">₹3,900</div><div style="font-size:10px;color:#475569">per day</div></div>
+                </div>
+              </div>
+            </div>
+            <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.25);border-radius:14px;padding:20px 22px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <div style="font-size:15px;font-weight:800;color:#f1f5f9">Monthly Package</div>
+                <div style="font-size:11px;color:#fbbf24;font-weight:700;background:rgba(251,191,36,.1);padding:4px 10px;border-radius:20px">Save up to 15%</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#fbbf24;font-weight:700;margin-bottom:4px">DAY SHIFTS · 26/mo</div>
+                  <div style="font-size:24px;font-weight:900;color:#fff">₹54,000</div>
+                  <div style="font-size:10px;color:#475569">₹2,077/shift · Save ₹3,200</div>
+                </div>
+                <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#fbbf24;font-weight:700;margin-bottom:4px">LIVE-IN · 30/mo</div>
+                  <div style="font-size:24px;font-weight:900;color:#fff">₹66,000</div>
+                  <div style="font-size:10px;color:#475569">₹2,200/day · Save ₹51,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div style="text-align:center;margin-top:40px">
       <a href="#" class="btn btn-white btn-lg" onclick="openModal('guardian-modal');return false">Get a free care consultation →</a>
-      <p style="color:#334155;font-size:13px;margin-top:12px">Not sure which tier? Our care team will help you choose.</p>
+      <p style="color:#334155;font-size:13px;margin-top:12px">Not sure which tier or shift? Our care team will help you choose.</p>
     </div>
   </div>
 </section>
@@ -1137,6 +1354,21 @@ function toggleMobileNav(){
 }
 function closeMobileNav(){
   document.getElementById('mobile-nav').classList.remove('open')
+}
+
+// ── TIER PRICING TABS ──
+function switchTier(tier, btn) {
+  document.querySelectorAll('.tier-detail-wrap').forEach(d => d.style.display = 'none')
+  document.getElementById('tier-' + tier).style.display = 'block'
+  document.querySelectorAll('.tier-tab').forEach(t => {
+    t.style.background = 'transparent'
+    t.style.color = '#94a3b8'
+    t.style.borderColor = 'rgba(255,255,255,.15)'
+  })
+  const colors = { t1: '#4ade80', t2: '#a78bfa', t3: '#fbbf24' }
+  btn.style.background = colors[tier]
+  btn.style.color = '#0f172a'
+  btn.style.borderColor = colors[tier]
 }
 
 // ── TABS ──
